@@ -1,0 +1,171 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6546,        163]
+NotebookOptionsPosition[      5612,        140]
+NotebookOutlinePosition[      6083,        158]
+CellTagsIndexPosition[      6040,        155]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"IMAQ`StartCamera", "[", "]"}], "\[IndentingNewLine]", 
+   RowBox[{
+   "Print", "[", 
+    "\"\<It'll make beep sound if you move in front of camera\>\"", "]"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"For", "[", 
+    RowBox[{
+     RowBox[{"i", " ", "=", "0"}], ",", " ", 
+     RowBox[{"i", "<", "100"}], ",", " ", 
+     RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"a", " ", "=", 
+       RowBox[{"CurrentImage", "[", "2", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Pause", "[", "0.25", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"img", " ", "=", " ", 
+       RowBox[{"ImageDifference", "@@", "a"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"grayImage", " ", "=", " ", 
+       RowBox[{"ColorConvert", "[", 
+        RowBox[{"img", ",", "\"\<Grayscale\>\""}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"intensityVal", " ", "=", " ", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{"ImageData", "[", "grayImage", "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"v", "[", "i", "]"}], " ", "=", " ", 
+       RowBox[{"Total", "[", "intensityVal", "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"v", "[", "i", "]"}], " ", ">", " ", "8000"}], ",", 
+        RowBox[{"EmitSound", "[", 
+         RowBox[{"Play", "[", 
+          RowBox[{
+           RowBox[{"Sin", "[", 
+            RowBox[{"1500", " ", "2", " ", "Pi", " ", "t"}], "]"}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"t", ",", " ", "0", ",", " ", "2"}], "}"}]}], "]"}], 
+         "]"}]}], "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ints", " ", "=", " ", 
+     RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"k", " ", "=", "0"}], ";", " ", 
+    RowBox[{"l", " ", "=", "0"}]}], "\[IndentingNewLine]", 
+   RowBox[{"While", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"k", " ", "<", "100"}], " ", "&&", " ", 
+      RowBox[{"l", " ", "<", "100"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"ints", " ", "=", " ", 
+       RowBox[{"AppendTo", "[", 
+        RowBox[{"ints", ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"k", ",", " ", 
+           RowBox[{"v", "[", "l", "]"}]}], "}"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"k", "++"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"l", "++"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Dynamic", "[", 
+    RowBox[{"ListLinePlot", "[", 
+     RowBox[{"ints", ",", 
+      RowBox[{"PlotRange", "\[Rule]", "All"}], ",", " ", 
+      RowBox[{"MeshStyle", "\[Rule]", "Green"}]}], "]"}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"IMAQ`StopCamera", "[", "]"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.843203105676046*^9, 3.8432031236450987`*^9}, {
+   3.8432031853171983`*^9, 3.843203585214413*^9}, 3.8432036671198034`*^9, {
+   3.8432037582325225`*^9, 3.8432037594499702`*^9}, {3.8432038036731787`*^9, 
+   3.8432038321525545`*^9}, {3.8432040452504377`*^9, 3.843204235636799*^9}, {
+   3.843205231901327*^9, 3.8432052920756454`*^9}, {3.843205521505225*^9, 
+   3.843205533786973*^9}, {3.8432055916096115`*^9, 3.843205663508165*^9}, {
+   3.8432057812855043`*^9, 3.8432058149649086`*^9}, {3.8432063191194263`*^9, 
+   3.8432063841740837`*^9}, {3.8432065653645926`*^9, 
+   3.8432066120357428`*^9}, {3.8432066455086117`*^9, 3.843206649754038*^9}, {
+   3.8432067169062138`*^9, 3.843206735593813*^9}, {3.8630644546893873`*^9, 
+   3.863064462174861*^9}},ExpressionUUID->"a222b0e2-e683-48c8-837a-\
+d23f0c95c9b2"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.863064449475452*^9, 
+  3.863064449475452*^9}},ExpressionUUID->"bb9246ba-9054-492d-843a-\
+d15f595f9900"],
+
+Cell[BoxData["\<\"It'll make beep sound if you move in front of camera\"\>"], \
+"Print",
+ CellChangeTimes->{3.8432066534094963`*^9, 3.8630641460218906`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"04302729-5544-4928-badc-17aa0cfdd134"],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.843206700657174*^9, 3.863064189984188*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"2bd5ac9c-7fcd-4ad5-b948-d6ee334171a8"],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   ListLinePlot[$CellContext`ints, PlotRange -> All, MeshStyle -> Green], 
+   StandardForm],
+  ImageSizeCache->{204.80000000000004`, {2., 6.}}]], "Output",
+ CellChangeTimes->{3.843206700657174*^9, 3.863064189984188*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"7c7fd8ca-d1f0-411d-bc6b-32a43545cbf1"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.843203897007615*^9, 3.8432039006423492`*^9}, {
+   3.8432039511996665`*^9, 3.8432040299984756`*^9}, 
+   3.8432042332544413`*^9},ExpressionUUID->"2444d469-a50a-40f1-8078-\
+05245ec5c747"]
+},
+WindowSize->{1152., 615.6},
+WindowMargins->{{
+  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
+Magnification:>0.6 Inherited,
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"69015968-0cb8-44fd-939b-34c611e51c35"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 3854, 85, 329, "Input",ExpressionUUID->"a222b0e2-e683-48c8-837a-d23f0c95c9b2"],
+Cell[4437, 109, 152, 3, 19, InheritFromParent,ExpressionUUID->"bb9246ba-9054-492d-843a-d15f595f9900"],
+Cell[4592, 114, 260, 5, 16, "Print",ExpressionUUID->"04302729-5544-4928-badc-17aa0cfdd134"],
+Cell[4855, 121, 170, 2, 22, "Output",ExpressionUUID->"2bd5ac9c-7fcd-4ad5-b948-d6ee334171a8"],
+Cell[5028, 125, 332, 6, 22, "Output",ExpressionUUID->"7c7fd8ca-d1f0-411d-bc6b-32a43545cbf1"]
+}, Open  ]],
+Cell[5375, 134, 233, 4, 19, "Input",ExpressionUUID->"2444d469-a50a-40f1-8078-05245ec5c747"]
+}
+]
+*)
+
